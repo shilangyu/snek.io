@@ -16,12 +16,12 @@ ___
 + TCP: sockets do szybkiej komunikacji komputerów
 ___
 ## klasy ##
-+ [Snake](./tree/master/Snake/Snake.cs): prędkość, kolor, wielkość, metody kolizjii
-+ [Food](./tree/master/Snake/Food.cs): lokalizacja, kolor, wartość, metody generowania miejsca pojawienia się
-+ [Game](./tree/master/Snake/Game.cs): parametry gry
-+ [MySQL](./tree/master/Snake/MySQL.cs): polaczenie, wykonanie query, zamknięcie
-+ [MultiClient](./tree/master/Snake/MultiClient.cs): podłaczenie do serwera TCP
-+ [MultiHost](./tree/master/Snake/MultiHost.cs): stworzenie hosta serwera TCP
++ [Snake](./blob/master/Snake/Snake.cs): prędkość, kolor, wielkość, metody kolizjii
++ [Food](./blob/master/Snake/Food.cs): lokalizacja, kolor, wartość, metody generowania miejsca pojawienia się
++ [Game](./blob/master/Snake/Game.cs): parametry gry
++ [MySQL](./blob/master/Snake/MySQL.cs): polaczenie, wykonanie query, zamknięcie
++ [MultiClient](./blob/master/Snake/MultiClient.cs): podłaczenie do serwera TCP
++ [MultiHost](./blob/master/Snake/MultiHost.cs): stworzenie hosta serwera TCP
 ___
 ## TODO ##
 - [ ] multiplayer

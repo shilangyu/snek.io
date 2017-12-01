@@ -1,4 +1,6 @@
-﻿namespace Snake
+﻿using System.Drawing;
+
+namespace Snake
 {
     partial class Menu
     {
@@ -38,7 +40,10 @@
             this.snakeColor = new MaterialSkin.Controls.MaterialFlatButton();
             this.sketch = new System.Windows.Forms.PictureBox();
             this.speed = new System.Windows.Forms.TrackBar();
-            this.mulyiplayer = new System.Windows.Forms.TabPage();
+            this.multiplayer = new System.Windows.Forms.TabPage();
+            this.portNumber = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.multiJoin = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.multiHost = new MaterialSkin.Controls.MaterialRaisedButton();
             this.lb = new System.Windows.Forms.TabPage();
             this.lbView = new MaterialSkin.Controls.MaterialListView();
             this.nameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -48,21 +53,20 @@
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.update = new System.Windows.Forms.Timer(this.components);
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.multiHost = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.multiJoin = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.portNumber = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.multiName = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.joined = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabControl1.SuspendLayout();
             this.singleplayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sketch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.speed)).BeginInit();
-            this.mulyiplayer.SuspendLayout();
+            this.multiplayer.SuspendLayout();
             this.lb.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabControl1
             // 
             this.materialTabControl1.Controls.Add(this.singleplayer);
-            this.materialTabControl1.Controls.Add(this.mulyiplayer);
+            this.materialTabControl1.Controls.Add(this.multiplayer);
             this.materialTabControl1.Controls.Add(this.lb);
             this.materialTabControl1.Depth = 0;
             this.materialTabControl1.Location = new System.Drawing.Point(13, 103);
@@ -199,18 +203,77 @@
             this.speed.Value = 15;
             this.speed.ValueChanged += new System.EventHandler(this.speed_ValueChanged);
             // 
-            // mulyiplayer
+            // multiplayer
             // 
-            this.mulyiplayer.Controls.Add(this.portNumber);
-            this.mulyiplayer.Controls.Add(this.multiJoin);
-            this.mulyiplayer.Controls.Add(this.multiHost);
-            this.mulyiplayer.Location = new System.Drawing.Point(4, 22);
-            this.mulyiplayer.Name = "mulyiplayer";
-            this.mulyiplayer.Padding = new System.Windows.Forms.Padding(3);
-            this.mulyiplayer.Size = new System.Drawing.Size(752, 439);
-            this.mulyiplayer.TabIndex = 1;
-            this.mulyiplayer.Text = "Multi player";
-            this.mulyiplayer.UseVisualStyleBackColor = true;
+            this.multiplayer.Controls.Add(this.joined);
+            this.multiplayer.Controls.Add(this.multiName);
+            this.multiplayer.Controls.Add(this.portNumber);
+            this.multiplayer.Controls.Add(this.multiJoin);
+            this.multiplayer.Controls.Add(this.multiHost);
+            this.multiplayer.Location = new System.Drawing.Point(4, 22);
+            this.multiplayer.Name = "multiplayer";
+            this.multiplayer.Padding = new System.Windows.Forms.Padding(3);
+            this.multiplayer.Size = new System.Drawing.Size(752, 439);
+            this.multiplayer.TabIndex = 1;
+            this.multiplayer.Text = "Multi player";
+            // 
+            // portNumber
+            // 
+            this.portNumber.BackColor = System.Drawing.Color.Salmon;
+            this.portNumber.Depth = 0;
+            this.portNumber.Hint = "";
+            this.portNumber.Location = new System.Drawing.Point(386, 72);
+            this.portNumber.MaxLength = 32767;
+            this.portNumber.MouseState = MaterialSkin.MouseState.HOVER;
+            this.portNumber.Name = "portNumber";
+            this.portNumber.PasswordChar = '\0';
+            this.portNumber.SelectedText = "";
+            this.portNumber.SelectionLength = 0;
+            this.portNumber.SelectionStart = 0;
+            this.portNumber.Size = new System.Drawing.Size(360, 23);
+            this.portNumber.TabIndex = 2;
+            this.portNumber.TabStop = false;
+            this.portNumber.Text = "Port number";
+            this.portNumber.UseSystemPasswordChar = false;
+            this.portNumber.Enter += new System.EventHandler(this.portNumber_Enter);
+            this.portNumber.Leave += new System.EventHandler(this.portNumber_Leave);
+            this.portNumber.TextChanged += new System.EventHandler(this.portNumber_TextChanged);
+            // 
+            // multiJoin
+            // 
+            this.multiJoin.AutoSize = true;
+            this.multiJoin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.multiJoin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.multiJoin.Depth = 0;
+            this.multiJoin.Enabled = false;
+            this.multiJoin.Icon = null;
+            this.multiJoin.Location = new System.Drawing.Point(6, 228);
+            this.multiJoin.MinimumSize = new System.Drawing.Size(360, 205);
+            this.multiJoin.MouseState = MaterialSkin.MouseState.HOVER;
+            this.multiJoin.Name = "multiJoin";
+            this.multiJoin.Primary = true;
+            this.multiJoin.Size = new System.Drawing.Size(360, 205);
+            this.multiJoin.TabIndex = 1;
+            this.multiJoin.Text = "Join game";
+            this.multiJoin.Click += new System.EventHandler(this.multiJoin_Click);
+            // 
+            // multiHost
+            // 
+            this.multiHost.AutoSize = true;
+            this.multiHost.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.multiHost.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.multiHost.Depth = 0;
+            this.multiHost.Enabled = false;
+            this.multiHost.Icon = null;
+            this.multiHost.Location = new System.Drawing.Point(386, 228);
+            this.multiHost.MinimumSize = new System.Drawing.Size(360, 205);
+            this.multiHost.MouseState = MaterialSkin.MouseState.HOVER;
+            this.multiHost.Name = "multiHost";
+            this.multiHost.Primary = true;
+            this.multiHost.Size = new System.Drawing.Size(360, 205);
+            this.multiHost.TabIndex = 0;
+            this.multiHost.Text = "Start hosting";
+            this.multiHost.Click += new System.EventHandler(this.multiHost_Click);
             // 
             // lb
             // 
@@ -221,7 +284,6 @@
             this.lb.Size = new System.Drawing.Size(752, 439);
             this.lb.TabIndex = 2;
             this.lb.Text = "leaderboards";
-            this.lb.UseVisualStyleBackColor = true;
             // 
             // lbView
             // 
@@ -277,58 +339,37 @@
             // 
             this.update.Tick += new System.EventHandler(this.update_Tick);
             // 
-            // multiHost
+            // multiName
             // 
-            this.multiHost.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.multiHost.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.multiHost.Depth = 0;
-            this.multiHost.Icon = null;
-            this.multiHost.Location = new System.Drawing.Point(386, 228);
-            this.multiHost.MinimumSize = new System.Drawing.Size(360, 205);
-            this.multiHost.MouseState = MaterialSkin.MouseState.HOVER;
-            this.multiHost.Name = "multiHost";
-            this.multiHost.Primary = true;
-            this.multiHost.Size = new System.Drawing.Size(360, 205);
-            this.multiHost.TabIndex = 0;
-            this.multiHost.Text = "Start hosting";
-            this.multiHost.UseVisualStyleBackColor = true;
-            this.multiHost.Click += new System.EventHandler(this.multiHost_Click);
+            this.multiName.Depth = 0;
+            this.multiName.Hint = "";
+            this.multiName.Location = new System.Drawing.Point(6, 72);
+            this.multiName.MaxLength = 32767;
+            this.multiName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.multiName.Name = "multiName";
+            this.multiName.PasswordChar = '\0';
+            this.multiName.SelectedText = "";
+            this.multiName.SelectionLength = 0;
+            this.multiName.SelectionStart = 0;
+            this.multiName.Size = new System.Drawing.Size(360, 23);
+            this.multiName.TabIndex = 2;
+            this.multiName.TabStop = false;
+            this.multiName.Text = "Your name";
+            this.multiName.UseSystemPasswordChar = false;
+            this.multiName.Enter += new System.EventHandler(this.multiName_Enter);
+            this.multiName.Leave += new System.EventHandler(this.multiName_Leave);
             // 
-            // multiJoin
+            // joined
             // 
-            this.multiJoin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.multiJoin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.multiJoin.Depth = 0;
-            this.multiJoin.Icon = null;
-            this.multiJoin.Location = new System.Drawing.Point(6, 228);
-            this.multiJoin.MinimumSize = new System.Drawing.Size(360, 205);
-            this.multiJoin.MouseState = MaterialSkin.MouseState.HOVER;
-            this.multiJoin.Name = "multiJoin";
-            this.multiJoin.Primary = true;
-            this.multiJoin.Size = new System.Drawing.Size(360, 205);
-            this.multiJoin.TabIndex = 1;
-            this.multiJoin.Text = "Join game";
-            this.multiJoin.UseVisualStyleBackColor = true;
-            // 
-            // portNumber
-            // 
-            this.portNumber.Depth = 0;
-            this.portNumber.Hint = "";
-            this.portNumber.Location = new System.Drawing.Point(265, 71);
-            this.portNumber.MaxLength = 32767;
-            this.portNumber.MouseState = MaterialSkin.MouseState.HOVER;
-            this.portNumber.Name = "portNumber";
-            this.portNumber.PasswordChar = '\0';
-            this.portNumber.SelectedText = "";
-            this.portNumber.SelectionLength = 0;
-            this.portNumber.SelectionStart = 0;
-            this.portNumber.Size = new System.Drawing.Size(265, 23);
-            this.portNumber.TabIndex = 2;
-            this.portNumber.TabStop = false;
-            this.portNumber.Text = "Port number";
-            this.portNumber.UseSystemPasswordChar = false;
-            this.portNumber.Enter += new System.EventHandler(this.portNumber_Enter);
-            this.portNumber.Leave += new System.EventHandler(this.portNumber_Leave);
+            this.joined.AutoSize = true;
+            this.joined.Depth = 0;
+            this.joined.Font = new System.Drawing.Font("Roboto", 11F);
+            this.joined.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.joined.Location = new System.Drawing.Point(7, 102);
+            this.joined.MouseState = MaterialSkin.MouseState.HOVER;
+            this.joined.Name = "joined";
+            this.joined.Size = new System.Drawing.Size(0, 19);
+            this.joined.TabIndex = 3;
             // 
             // Menu
             // 
@@ -346,7 +387,8 @@
             this.singleplayer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sketch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.speed)).EndInit();
-            this.mulyiplayer.ResumeLayout(false);
+            this.multiplayer.ResumeLayout(false);
+            this.multiplayer.PerformLayout();
             this.lb.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -356,7 +398,7 @@
 
         private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
         private System.Windows.Forms.TabPage singleplayer;
-        private System.Windows.Forms.TabPage mulyiplayer;
+        private System.Windows.Forms.TabPage multiplayer;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
         private System.Windows.Forms.TrackBar speed;
         private System.Windows.Forms.Timer update;
@@ -376,5 +418,7 @@
         private MaterialSkin.Controls.MaterialRaisedButton multiHost;
         private MaterialSkin.Controls.MaterialRaisedButton multiJoin;
         private MaterialSkin.Controls.MaterialSingleLineTextField portNumber;
+        private MaterialSkin.Controls.MaterialSingleLineTextField multiName;
+        private MaterialSkin.Controls.MaterialLabel joined;
     }
 }

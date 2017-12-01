@@ -18,7 +18,6 @@ namespace Snake
     {
         // properties
         int s;
-        bool withBonuses;
         Color snake, back, food;
         Snake model;
         Game g;
@@ -117,7 +116,14 @@ namespace Snake
         }
         private void multiHost_Click(object sender, EventArgs e)
         {
-           
+            MultiHost m = new MultiHost(Convert.ToInt32(portNumber.Text));
+            //while( true )
+                joined.Text += m.Listen() + "\n";
+            m.Close();
+        }
+        private void multiJoin_Click(object sender, EventArgs e)
+        {
+            MultiClient m = new MultiClient(Convert.ToInt32(portNumber.Text), multiName.Text);
         }
         private void portNumber_Leave(object sender, EventArgs e)
         {
@@ -128,6 +134,33 @@ namespace Snake
         {
             if (portNumber.Text == "Port number")
                 portNumber.Text = "";
+        }
+        private void portNumber_TextChanged(object sender, EventArgs e)
+        {
+            if(int.TryParse(portNumber.Text, out var res))
+            {
+                multiHost.Enabled = true;
+                multiJoin.Enabled = true;
+                multiHost.Text = "START HOSTING";
+                multiJoin.Text = "JOIN GAME";
+            }
+            else
+            {
+                multiHost.Enabled = false;
+                multiJoin.Enabled = false;
+                multiHost.Text = "PORT INCORRECT";
+                multiJoin.Text = "PORT INCORRECT";
+            }
+        }
+        private void multiName_Enter(object sender, EventArgs e)
+        {
+            if (multiName.Text == "Your name")
+                multiName.Text = "";
+        }
+        private void multiName_Leave(object sender, EventArgs e)
+        {
+            if (multiName.Text == "")
+                multiName.Text = "Your name";
         }
 
         // functions

@@ -1,5 +1,5 @@
 # snek.io
-C# projekt 
+C# projekt
 
 ## co to za projekt? ##
 __Snake__ to gra polegająca na sterowaniu wężem aby zjadać jedzenie by stawać sie coraz dłuższym. Celem jest zdobycie jak najwiecej punktów.
@@ -14,18 +14,20 @@ ___
 + Timer: rytmiczne wykonywanie jakiś zadań
 + Material Design: wizualny standard Google
 + TCP: sockets do szybkiej komunikacji komputerów
++ MySQL: bazadanych do przechowywania rekordów
 ___
 ## klasy ##
 + [Snake](./Snake/Snake.cs): prędkość, kolor, wielkość, metody kolizjii
 + [Food](./Snake/Food.cs): lokalizacja, kolor, wartość, metody generowania miejsca pojawienia się
 + [Game](./Snake/Game.cs): parametry gry
 + [MySQL](./Snake/MySQL.cs): polaczenie, wykonanie query, zamknięcie
-+ [MultiClient](./Snake/MultiClient.cs): podłaczenie do serwera TCP
-+ [MultiHost](./Snake/MultiHost.cs): stworzenie hosta serwera TCP
++ [WaitingRoom](./Snake/WaitingRoom.cs): miejsce gdzie czeka sie na połączenie innych graczy
++ [Singleplayer](./Snake/Singleplayer.cs): gra jednoosobowa
+
 ___
 ## TODO ##
 - [ ] multiplayer
-- [ ] prompt room before starting a game on MP
+- [x] prompt room before starting a game on MP
 - [x] singleplayer bonus food
 - [x] all material design controls
 - [ ] leaderboards not local

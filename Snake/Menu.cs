@@ -116,14 +116,15 @@ namespace Snake
         }
         private void multiHost_Click(object sender, EventArgs e)
         {
-            MultiHost m = new MultiHost(Convert.ToInt32(portNumber.Text));
-            //while( true )
-                joined.Text += m.Listen() + "\n";
-            m.Close();
+            WaitingRoom r = new WaitingRoom("host", multiName.Text, Convert.ToInt32(portNumber.Text));
+                r.ShowDialog();
+            r.Close();
         }
         private void multiJoin_Click(object sender, EventArgs e)
         {
-            MultiClient m = new MultiClient(Convert.ToInt32(portNumber.Text), multiName.Text);
+            WaitingRoom r = new WaitingRoom("client", multiName.Text, Convert.ToInt32(portNumber.Text));
+                r.ShowDialog();
+            r.Close();
         }
         private void portNumber_Leave(object sender, EventArgs e)
         {

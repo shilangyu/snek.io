@@ -41,6 +41,8 @@ namespace Snake
             this.sketch = new System.Windows.Forms.PictureBox();
             this.speed = new System.Windows.Forms.TrackBar();
             this.multiplayer = new System.Windows.Forms.TabPage();
+            this.joined = new MaterialSkin.Controls.MaterialLabel();
+            this.multiName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.portNumber = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.multiJoin = new MaterialSkin.Controls.MaterialRaisedButton();
             this.multiHost = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -53,8 +55,6 @@ namespace Snake
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.update = new System.Windows.Forms.Timer(this.components);
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.multiName = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.joined = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabControl1.SuspendLayout();
             this.singleplayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sketch)).BeginInit();
@@ -217,6 +217,38 @@ namespace Snake
             this.multiplayer.TabIndex = 1;
             this.multiplayer.Text = "Multi player";
             // 
+            // joined
+            // 
+            this.joined.AutoSize = true;
+            this.joined.Depth = 0;
+            this.joined.Font = new System.Drawing.Font("Roboto", 11F);
+            this.joined.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.joined.Location = new System.Drawing.Point(7, 102);
+            this.joined.MouseState = MaterialSkin.MouseState.HOVER;
+            this.joined.Name = "joined";
+            this.joined.Size = new System.Drawing.Size(0, 19);
+            this.joined.TabIndex = 3;
+            // 
+            // multiName
+            // 
+            this.multiName.Depth = 0;
+            this.multiName.Hint = "";
+            this.multiName.Location = new System.Drawing.Point(6, 72);
+            this.multiName.MaxLength = 32767;
+            this.multiName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.multiName.Name = "multiName";
+            this.multiName.PasswordChar = '\0';
+            this.multiName.SelectedText = "";
+            this.multiName.SelectionLength = 0;
+            this.multiName.SelectionStart = 0;
+            this.multiName.Size = new System.Drawing.Size(360, 23);
+            this.multiName.TabIndex = 2;
+            this.multiName.TabStop = false;
+            this.multiName.Text = "Your name";
+            this.multiName.UseSystemPasswordChar = false;
+            this.multiName.Enter += new System.EventHandler(this.multiName_Enter);
+            this.multiName.Leave += new System.EventHandler(this.multiName_Leave);
+            // 
             // portNumber
             // 
             this.portNumber.BackColor = System.Drawing.Color.Salmon;
@@ -254,7 +286,7 @@ namespace Snake
             this.multiJoin.Primary = true;
             this.multiJoin.Size = new System.Drawing.Size(360, 205);
             this.multiJoin.TabIndex = 1;
-            this.multiJoin.Text = "Join game";
+            this.multiJoin.Text = "PORT INCORRECT";
             this.multiJoin.Click += new System.EventHandler(this.multiJoin_Click);
             // 
             // multiHost
@@ -272,7 +304,7 @@ namespace Snake
             this.multiHost.Primary = true;
             this.multiHost.Size = new System.Drawing.Size(360, 205);
             this.multiHost.TabIndex = 0;
-            this.multiHost.Text = "Start hosting";
+            this.multiHost.Text = "PORT INCORRECT";
             this.multiHost.Click += new System.EventHandler(this.multiHost_Click);
             // 
             // lb
@@ -339,38 +371,6 @@ namespace Snake
             // 
             this.update.Tick += new System.EventHandler(this.update_Tick);
             // 
-            // multiName
-            // 
-            this.multiName.Depth = 0;
-            this.multiName.Hint = "";
-            this.multiName.Location = new System.Drawing.Point(6, 72);
-            this.multiName.MaxLength = 32767;
-            this.multiName.MouseState = MaterialSkin.MouseState.HOVER;
-            this.multiName.Name = "multiName";
-            this.multiName.PasswordChar = '\0';
-            this.multiName.SelectedText = "";
-            this.multiName.SelectionLength = 0;
-            this.multiName.SelectionStart = 0;
-            this.multiName.Size = new System.Drawing.Size(360, 23);
-            this.multiName.TabIndex = 2;
-            this.multiName.TabStop = false;
-            this.multiName.Text = "Your name";
-            this.multiName.UseSystemPasswordChar = false;
-            this.multiName.Enter += new System.EventHandler(this.multiName_Enter);
-            this.multiName.Leave += new System.EventHandler(this.multiName_Leave);
-            // 
-            // joined
-            // 
-            this.joined.AutoSize = true;
-            this.joined.Depth = 0;
-            this.joined.Font = new System.Drawing.Font("Roboto", 11F);
-            this.joined.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.joined.Location = new System.Drawing.Point(7, 102);
-            this.joined.MouseState = MaterialSkin.MouseState.HOVER;
-            this.joined.Name = "joined";
-            this.joined.Size = new System.Drawing.Size(0, 19);
-            this.joined.TabIndex = 3;
-            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,6 +381,7 @@ namespace Snake
             this.MaximizeBox = false;
             this.Name = "Menu";
             this.Sizable = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.materialTabControl1.ResumeLayout(false);
             this.singleplayer.ResumeLayout(false);

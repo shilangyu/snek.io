@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -116,15 +117,29 @@ namespace Snake
         }
         private void multiHost_Click(object sender, EventArgs e)
         {
-            WaitingRoom r = new WaitingRoom("host", multiName.Text, Convert.ToInt32(portNumber.Text));
-                r.ShowDialog();
-            r.Close();
+            try
+            {
+                WaitingRoom r = new WaitingRoom("host", multiName.Text, Convert.ToInt32(portNumber.Text));
+                    r.ShowDialog();
+                r.Stop();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void multiJoin_Click(object sender, EventArgs e)
         {
-            WaitingRoom r = new WaitingRoom("client", multiName.Text, Convert.ToInt32(portNumber.Text));
-                r.ShowDialog();
-            r.Close();
+            try
+            {
+                WaitingRoom r = new WaitingRoom("client", multiName.Text, Convert.ToInt32(portNumber.Text));
+                    r.ShowDialog();
+                r.Stop();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void portNumber_Leave(object sender, EventArgs e)
         {

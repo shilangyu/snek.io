@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -36,14 +37,14 @@ namespace Snake
                     server = new SimpleTcpServer();
                     server.Delimiter = 0x13;
                     server.StringEncoder = Encoding.UTF8;
-                    server.DataReceived += NewClient;
+                    server.DataReceived += GetServer;
                     server.Start(ip, port);
                     test.Text = name + "\n";
                     break;
                 case "client":
                     client = new SimpleTcpClient();
                     client.StringEncoder = Encoding.UTF8;
-                    client.DataReceived += AddClient;
+                    client.DataReceived += GetClient;
                     client.Connect(ipAdress, port);
                     test.Text = name + "\n";
                     break;
@@ -58,26 +59,28 @@ namespace Snake
         private void WaitingRoom_Load(object sender, EventArgs e)
         {
             if (who == "client")
-                client.WriteLineAndGetReply(name, TimeSpan.FromSeconds(3));
+                client.WriteLine(name);
         }
 
         // functions
-        private void NewClient(object sender, SimpleTCP.Message e)
+        private void GetServer(object sender, SimpleTCP.Message e)
         {
             test.Invoke((MethodInvoker)delegate ()
             {
-                test.Text += e.MessageString + "\n";
-                e.ReplyLine(name);
+                string recieved = Regex.Replace(e.MessageString, @"\u0013", String.Empty);
+                test.Text += recieved + "\n";
             });
+            server.BroadcastLine(test.Text);
         }
-        private void AddClient(object sender, SimpleTCP.Message e)
+        private void GetClient(object sender, SimpleTCP.Message e)
         {
             test.Invoke((MethodInvoker)delegate ()
             {
-                test.Text += e.MessageString + "\n";
+                string recieved = Regex.Replace(e.MessageString, @"\u0013", String.Empty);
+                test.Text = recieved;
             });
         }
-        public void Close()
+        public void Stop()
         {
             switch (who)
             {

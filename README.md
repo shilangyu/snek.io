@@ -22,7 +22,7 @@ ___
 + [Game](./Snake/Game.cs): parametry gry
 + [MySQL](./Snake/MySQL.cs): polaczenie, wykonanie query, zamknięcie
 + [WaitingRoom](./Snake/WaitingRoom.cs): miejsce gdzie czeka sie na połączenie innych graczy
-+ [Singleplayer](./Snake/Singleplayer.cs): gra jednoosobowa
++ [SinglePlayer](./Snake/SinglePlayer.cs): gra jednoosobowa
 
 ___
 ## TODO ##

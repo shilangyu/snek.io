@@ -46,7 +46,7 @@ namespace Snake
                     client.StringEncoder = Encoding.UTF8;
                     client.DataReceived += GetClient;
                     client.Connect(ipAdress, port);
-                    test.Text = name + "\n";
+                    startMulti.Visible = false;
                     break;
                 default:
                     MessageBox.Show("Unknown TCP user");

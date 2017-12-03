@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.test = new MaterialSkin.Controls.MaterialLabel();
-            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.startMulti = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
             // 
             // test
@@ -46,28 +46,30 @@
             this.test.TabIndex = 0;
             this.test.Text = "materialLabel1";
             // 
-            // materialRaisedButton1
+            // startMulti
             // 
-            this.materialRaisedButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.materialRaisedButton1.Icon = null;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(0, 277);
-            this.materialRaisedButton1.MaximumSize = new System.Drawing.Size(0, 100);
-            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton1.Name = "materialRaisedButton1";
-            this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(374, 100);
-            this.materialRaisedButton1.TabIndex = 1;
-            this.materialRaisedButton1.Text = "Start";
-            this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.startMulti.AutoSize = true;
+            this.startMulti.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.startMulti.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.startMulti.Depth = 0;
+            this.startMulti.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.startMulti.Icon = null;
+            this.startMulti.Location = new System.Drawing.Point(0, 341);
+            this.startMulti.MaximumSize = new System.Drawing.Size(0, 100);
+            this.startMulti.MouseState = MaterialSkin.MouseState.HOVER;
+            this.startMulti.Name = "startMulti";
+            this.startMulti.Primary = true;
+            this.startMulti.Size = new System.Drawing.Size(374, 36);
+            this.startMulti.TabIndex = 1;
+            this.startMulti.Text = "Start";
+            this.startMulti.UseVisualStyleBackColor = true;
             // 
             // WaitingRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(374, 377);
-            this.Controls.Add(this.materialRaisedButton1);
+            this.Controls.Add(this.startMulti);
             this.Controls.Add(this.test);
             this.Name = "WaitingRoom";
             this.Text = "WaitingRoom";
@@ -80,6 +82,6 @@
         #endregion
 
         private MaterialSkin.Controls.MaterialLabel test;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
+        private MaterialSkin.Controls.MaterialRaisedButton startMulti;
     }
 }

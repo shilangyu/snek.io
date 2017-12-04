@@ -15,11 +15,12 @@ namespace Snake
         string query;
         MySqlConnection myConn;
         MySqlDataReader result;
-           
+        
+        // constructor
         public MySQL(string que)
         {
             Query = que;
-            ConnectionString = "datasource=localhost;port=3306;database=preferences;username=clitcancer;password=adminadmin";
+            ConnectionString = "datasource=192.168.88.79;port=3306;database=preferences;username=clitcancer;password=adminadmin";
         }
 
         // functions

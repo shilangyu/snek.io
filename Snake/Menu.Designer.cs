@@ -52,6 +52,8 @@ namespace Snake
             this.scoreColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lengthColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.speedColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.about = new System.Windows.Forms.TabPage();
+            this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.update = new System.Windows.Forms.Timer(this.components);
             this.colorDialog = new System.Windows.Forms.ColorDialog();
@@ -61,6 +63,7 @@ namespace Snake
             ((System.ComponentModel.ISupportInitialize)(this.speed)).BeginInit();
             this.multiplayer.SuspendLayout();
             this.lb.SuspendLayout();
+            this.about.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -68,6 +71,7 @@ namespace Snake
             this.materialTabControl1.Controls.Add(this.singleplayer);
             this.materialTabControl1.Controls.Add(this.multiplayer);
             this.materialTabControl1.Controls.Add(this.lb);
+            this.materialTabControl1.Controls.Add(this.about);
             this.materialTabControl1.Depth = 0;
             this.materialTabControl1.Location = new System.Drawing.Point(13, 103);
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
@@ -356,6 +360,27 @@ namespace Snake
             // 
             this.speedColumn.Text = "Speed";
             // 
+            // about
+            // 
+            this.about.Controls.Add(this.webBrowser);
+            this.about.Location = new System.Drawing.Point(4, 22);
+            this.about.Name = "about";
+            this.about.Padding = new System.Windows.Forms.Padding(3);
+            this.about.Size = new System.Drawing.Size(752, 439);
+            this.about.TabIndex = 3;
+            this.about.Text = "About";
+            this.about.UseVisualStyleBackColor = true;
+            // 
+            // webBrowser
+            // 
+            this.webBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser.Location = new System.Drawing.Point(3, 3);
+            this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser.Name = "webBrowser";
+            this.webBrowser.Size = new System.Drawing.Size(746, 433);
+            this.webBrowser.TabIndex = 0;
+            this.webBrowser.Url = new System.Uri("", System.UriKind.Relative);
+            // 
             // materialTabSelector1
             // 
             this.materialTabSelector1.BaseTabControl = this.materialTabControl1;
@@ -391,6 +416,7 @@ namespace Snake
             this.multiplayer.ResumeLayout(false);
             this.multiplayer.PerformLayout();
             this.lb.ResumeLayout(false);
+            this.about.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -421,5 +447,7 @@ namespace Snake
         private MaterialSkin.Controls.MaterialSingleLineTextField portNumber;
         private MaterialSkin.Controls.MaterialSingleLineTextField multiName;
         private MaterialSkin.Controls.MaterialLabel joined;
+        private System.Windows.Forms.TabPage about;
+        private System.Windows.Forms.WebBrowser webBrowser;
     }
 }

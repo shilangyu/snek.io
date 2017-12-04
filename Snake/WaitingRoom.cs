@@ -20,7 +20,7 @@ namespace Snake
         SimpleTcpServer server;
         SimpleTcpClient client;
         string who;
-        static string ipAdress = "127.0.0.1";
+        static string ipAdress = "192.168.88.79";
         IPAddress ip = IPAddress.Parse(ipAdress);
         string name;
 

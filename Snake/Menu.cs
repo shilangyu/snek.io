@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -28,6 +29,10 @@ namespace Snake
         public Menu()
         {
             InitializeComponent();
+
+            string curDir = Directory.GetCurrentDirectory();
+            webBrowser.Url = new Uri($"file:///{ curDir }/help.html");
+
             this.ActiveControl = sketch;
 
             var materialSkinManager = MaterialSkinManager.Instance;

@@ -30,8 +30,11 @@ ___
 - [x] prompt room before starting a game on MP
 - [x] singleplayer bonus food
 - [x] all material design controls
-- [ ] leaderboards not local
+- [x] leaderboards not local
 - [x] fullscreen singleplayer
+- [ ] making everything not server-limited
+- [ ] menu sizable
+- [ ] everybody being a host in TCP MP
 
 
 ![picture alt](https://raw.githubusercontent.com/clitcancer/snek.io/master/Snake/favicon_pak_icon.ico "Snek.io")

@@ -89,6 +89,10 @@ namespace Snake
                 newGame.ShowDialog();
                 this.Close();
             }
+            else if ((e.KeyValue == 27 || e.KeyValue == 81) && game.T.Enabled)
+            {
+                this.Close();
+            }
 
         }
 
@@ -120,7 +124,7 @@ namespace Snake
                 game.T = new Timer();
                 game.T.Interval = 500;
                 bool ani = true;
-                game.T.Tick += (object sender, EventArgs e) => { if (ani) { RefreshLabel("gameover", $"GAME OVER\nHighscore: {highscore}\nPress r to restart"); ani = false; } else { RefreshLabel("gameover", ""); ani = true; } };
+                game.T.Tick += (object sender, EventArgs e) => { if (ani) { RefreshLabel("gameover", $"GAME OVER\nHighscore: {highscore}\nPress r to restart\nPress q or ESC to quit"); ani = false; } else { RefreshLabel("gameover", ""); ani = true; } };
                 game.T.Start();
                 return;
             }

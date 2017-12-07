@@ -118,7 +118,7 @@ namespace Snake
             singlePlayer SP = new singlePlayer(s, snake, back, food, name.Text);
             this.Hide();
             SP.ShowDialog();
-            this.Close();
+            this.Show();
         }
         private void multiHost_Click(object sender, EventArgs e)
         {

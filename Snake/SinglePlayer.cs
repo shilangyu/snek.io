@@ -89,9 +89,16 @@ namespace Snake
                 newGame.ShowDialog();
                 this.Close();
             }
-            else if ((e.KeyValue == 27 || e.KeyValue == 81) && game.T.Enabled)
+            else if (e.KeyValue == 27 || e.KeyValue == 81)
             {
-                this.Close();
+                snakeUpdate.Enabled = false;
+                DateTime stop = DateTime.Now;
+
+                if (MessageBox.Show("Are you sure?", "Exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
+                    this.Close();
+
+                snakeUpdate.Enabled = true;
+                food.Time = food.Time + (DateTime.Now - stop);
             }
 
         }

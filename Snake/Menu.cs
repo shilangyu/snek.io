@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -29,6 +30,8 @@ namespace Snake
         public Menu()
         {
             InitializeComponent();
+            
+
 
             string curDir = Directory.GetCurrentDirectory();
             webBrowser.Url = new Uri($"file:///{ curDir }/help.html");
@@ -124,7 +127,7 @@ namespace Snake
         {
             try
             {
-                WaitingRoom r = new WaitingRoom("host", multiName.Text, Convert.ToInt32(portNumber.Text));
+                WaitingRoom r = new WaitingRoom(multiName.Text);
                     r.ShowDialog();
                 r.Stop();
             }
@@ -137,7 +140,7 @@ namespace Snake
         {
             try
             {
-                WaitingRoom r = new WaitingRoom("client", multiName.Text, Convert.ToInt32(portNumber.Text));
+                WaitingRoom r = new WaitingRoom(multiName.Text, Convert.ToInt32(portNumber.Text));
                     r.ShowDialog();
                 r.Stop();
             }
@@ -149,28 +152,24 @@ namespace Snake
         private void portNumber_Leave(object sender, EventArgs e)
         {
             if (portNumber.Text == "")
-                portNumber.Text = "Port number";
+                portNumber.Text = "Connection number";
         }
         private void portNumber_Enter(object sender, EventArgs e)
         {
-            if (portNumber.Text == "Port number")
+            if (portNumber.Text == "Connection number")
                 portNumber.Text = "";
         }
         private void portNumber_TextChanged(object sender, EventArgs e)
         {
-            if(int.TryParse(portNumber.Text, out var res))
+            if(int.TryParse(portNumber.Text, out var res) && portNumber.Text.Length < 4)
             {
-                multiHost.Enabled = true;
                 multiJoin.Enabled = true;
-                multiHost.Text = "START HOSTING";
                 multiJoin.Text = "JOIN GAME";
             }
             else
             {
-                multiHost.Enabled = false;
                 multiJoin.Enabled = false;
-                multiHost.Text = "PORT INCORRECT";
-                multiJoin.Text = "PORT INCORRECT";
+                multiJoin.Text = "CONNECTION NUMBER INCORRECT";
             }
         }
         private void multiName_Enter(object sender, EventArgs e)

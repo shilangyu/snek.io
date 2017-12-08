@@ -269,7 +269,7 @@ namespace Snake
             this.portNumber.Size = new System.Drawing.Size(360, 23);
             this.portNumber.TabIndex = 2;
             this.portNumber.TabStop = false;
-            this.portNumber.Text = "Port number";
+            this.portNumber.Text = "Connection number";
             this.portNumber.UseSystemPasswordChar = false;
             this.portNumber.Enter += new System.EventHandler(this.portNumber_Enter);
             this.portNumber.Leave += new System.EventHandler(this.portNumber_Leave);
@@ -290,7 +290,7 @@ namespace Snake
             this.multiJoin.Primary = true;
             this.multiJoin.Size = new System.Drawing.Size(360, 205);
             this.multiJoin.TabIndex = 1;
-            this.multiJoin.Text = "PORT INCORRECT";
+            this.multiJoin.Text = "CONNECTION NUMBER INCORRECT";
             this.multiJoin.Click += new System.EventHandler(this.multiJoin_Click);
             // 
             // multiHost
@@ -299,7 +299,6 @@ namespace Snake
             this.multiHost.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.multiHost.Cursor = System.Windows.Forms.Cursors.Hand;
             this.multiHost.Depth = 0;
-            this.multiHost.Enabled = false;
             this.multiHost.Icon = null;
             this.multiHost.Location = new System.Drawing.Point(386, 228);
             this.multiHost.MinimumSize = new System.Drawing.Size(360, 205);
@@ -308,7 +307,7 @@ namespace Snake
             this.multiHost.Primary = true;
             this.multiHost.Size = new System.Drawing.Size(360, 205);
             this.multiHost.TabIndex = 0;
-            this.multiHost.Text = "PORT INCORRECT";
+            this.multiHost.Text = "START HOSTING";
             this.multiHost.Click += new System.EventHandler(this.multiHost_Click);
             // 
             // lb

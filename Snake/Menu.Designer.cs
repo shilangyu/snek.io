@@ -73,11 +73,11 @@ namespace Snake
             this.materialTabControl1.Controls.Add(this.lb);
             this.materialTabControl1.Controls.Add(this.about);
             this.materialTabControl1.Depth = 0;
-            this.materialTabControl1.Location = new System.Drawing.Point(13, 103);
+            this.materialTabControl1.Location = new System.Drawing.Point(0, 91);
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(760, 465);
+            this.materialTabControl1.Size = new System.Drawing.Size(742, 465);
             this.materialTabControl1.TabIndex = 0;
             // 
             // singleplayer
@@ -92,12 +92,14 @@ namespace Snake
             this.singleplayer.Location = new System.Drawing.Point(4, 22);
             this.singleplayer.Name = "singleplayer";
             this.singleplayer.Padding = new System.Windows.Forms.Padding(3);
-            this.singleplayer.Size = new System.Drawing.Size(752, 439);
+            this.singleplayer.Size = new System.Drawing.Size(734, 439);
             this.singleplayer.TabIndex = 0;
             this.singleplayer.Text = "Single player";
             // 
             // startSingle
             // 
+            this.startSingle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.startSingle.AutoSize = true;
             this.startSingle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.startSingle.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -382,12 +384,14 @@ namespace Snake
             // 
             // materialTabSelector1
             // 
+            this.materialTabSelector1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.materialTabSelector1.BaseTabControl = this.materialTabControl1;
             this.materialTabSelector1.Depth = 0;
             this.materialTabSelector1.Location = new System.Drawing.Point(0, 64);
             this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(785, 31);
+            this.materialTabSelector1.Size = new System.Drawing.Size(744, 31);
             this.materialTabSelector1.TabIndex = 1;
             this.materialTabSelector1.Text = "materialTabSelector1";
             // 
@@ -399,7 +403,7 @@ namespace Snake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 571);
+            this.ClientSize = new System.Drawing.Size(744, 543);
             this.Controls.Add(this.materialTabSelector1);
             this.Controls.Add(this.materialTabControl1);
             this.MaximizeBox = false;

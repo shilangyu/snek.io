@@ -28,10 +28,20 @@ namespace Snake
         public WaitingRoom(string name)
         {
             IPAddress[] localIPs = Dns.GetHostAddresses(Dns.GetHostName());
+                string temp = "";   
                 ipAdress = localIPs[2].ToString();
+                for (int i = 0, a = 0; i < ipAdress.Length; i++)
+                {
+                    if (ipAdress[i] == '.' && ++a == 3)
+                    {
+                        temp = ipAdress.Substring(i+1, ipAdress.Length-i-1);
+                        break;
+                    }
+                }
                 ip = IPAddress.Parse(ipAdress);
 
             InitializeComponent();
+            this.Text += temp;
             this.name = name;
             this.who = "host";
                
@@ -40,22 +50,27 @@ namespace Snake
                 server.StringEncoder = Encoding.UTF8;
                 server.DataReceived += GetServer;
                 server.Start(ip, 8000);
-                test.Text = name + "\n";
+                players.Text = name + "\n";
         }
         public WaitingRoom(string name, int conNum)
         {
             IPAddress[] localIPs = Dns.GetHostAddresses(Dns.GetHostName());
                 ipAdress = localIPs[2].ToString();
-                for(int i=0, a=0; i < ipAdress.Length; i++)
+                string temp = "";
+                for (int i=0, a=0; i < ipAdress.Length; i++)
                 {
                     if(ipAdress[i] == '.' && ++a == 3)
                     {
                         ipAdress = ipAdress.Substring(0, i+1) + conNum.ToString();
+                        temp = conNum.ToString();
+                        break;
                     }
                 }
                 ip = IPAddress.Parse(ipAdress);
+            
 
             InitializeComponent();
+            this.Text += temp;
             this.name = name;
             this.who = "client";
             
@@ -76,19 +91,19 @@ namespace Snake
         // functions
         private void GetServer(object sender, SimpleTCP.Message e)
         {
-            test.Invoke((MethodInvoker)delegate ()
+            players.Invoke((MethodInvoker)delegate ()
             {
                 string recieved = Regex.Replace(e.MessageString, @"\u0013", String.Empty);
-                test.Text += recieved + "\n";
+                players.Text += recieved + "\n";
             });
-            server.BroadcastLine(test.Text);
+            server.BroadcastLine(players.Text);
         }
         private void GetClient(object sender, SimpleTCP.Message e)
         {
-            test.Invoke((MethodInvoker)delegate ()
+            players.Invoke((MethodInvoker)delegate ()
             {
                 string recieved = Regex.Replace(e.MessageString, @"\u0013", String.Empty);
-                test.Text = recieved;
+                players.Text = recieved;
             });
         }
         public void Stop()

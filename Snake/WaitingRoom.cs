@@ -20,41 +20,52 @@ namespace Snake
         SimpleTcpServer server;
         SimpleTcpClient client;
         string who;
-        static string ipAdress = "192.168.88.79";
-        IPAddress ip = IPAddress.Parse(ipAdress);
+        static string ipAdress;
+        IPAddress ip;
         string name;
 
         // constructor
-        public WaitingRoom(string who, string name, int port)
+        public WaitingRoom(string name)
         {
+            IPAddress[] localIPs = Dns.GetHostAddresses(Dns.GetHostName());
+                ipAdress = localIPs[2].ToString();
+                ip = IPAddress.Parse(ipAdress);
+
             InitializeComponent();
             this.name = name;
-            this.who = who;
-
-            switch (who)
-            {
-                case "host":
-                    server = new SimpleTcpServer();
-                    server.Delimiter = 0x13;
-                    server.StringEncoder = Encoding.UTF8;
-                    server.DataReceived += GetServer;
-                    server.Start(ip, port);
-                    test.Text = name + "\n";
-                    break;
-                case "client":
-                    client = new SimpleTcpClient();
-                    client.StringEncoder = Encoding.UTF8;
-                    client.DataReceived += GetClient;
-                    client.Connect(ipAdress, port);
-                    startMulti.Visible = false;
-                    break;
-                default:
-                    MessageBox.Show("Unknown TCP user");
-                    this.Close();
-                    break;
-            }
+            this.who = "host";
+               
+            server = new SimpleTcpServer();
+                server.Delimiter = 0x13;
+                server.StringEncoder = Encoding.UTF8;
+                server.DataReceived += GetServer;
+                server.Start(ip, 8000);
+                test.Text = name + "\n";
         }
+        public WaitingRoom(string name, int conNum)
+        {
+            IPAddress[] localIPs = Dns.GetHostAddresses(Dns.GetHostName());
+                ipAdress = localIPs[2].ToString();
+                for(int i=0, a=0; i < ipAdress.Length; i++)
+                {
+                    if(ipAdress[i] == '.' && ++a == 3)
+                    {
+                        ipAdress = ipAdress.Substring(0, i+1) + conNum.ToString();
+                    }
+                }
+                ip = IPAddress.Parse(ipAdress);
 
+            InitializeComponent();
+            this.name = name;
+            this.who = "client";
+            
+            client = new SimpleTcpClient();
+                client.StringEncoder = Encoding.UTF8;
+                client.DataReceived += GetClient;
+                client.Connect(ipAdress, 8000);
+                startMulti.Visible = false;
+        }
+        
         // events
         private void WaitingRoom_Load(object sender, EventArgs e)
         {

@@ -33,8 +33,7 @@ ___
 - [x] leaderboards not local
 - [x] fullscreen singleplayer
 - [ ] making everything not server-limited
-- [ ] menu sizable
-- [ ] everybody being a host in TCP MP
+- [x] everybody being a host in TCP MP
 
 
 ![picture alt](https://raw.githubusercontent.com/clitcancer/snek.io/master/Snake/favicon_pak_icon.ico "Snek.io")

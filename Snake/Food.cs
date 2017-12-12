@@ -26,6 +26,14 @@ namespace Snake
             generateFood("normal", s);
             Lifespan = new TimeSpan(0,0,35 - s.Speed);
         }
+        public Food(Color backColor, Color foreColor, Game b, Snake s, Point loca)
+        {
+            Bases = b;
+            this.Color.Add(new SolidBrush(backColor));
+            this.Color.Add(new SolidBrush(foreColor));
+            NormalFood = loca;
+            Lifespan = new TimeSpan(0, 0, 35 - s.Speed);
+        }
 
         // functions
         public void generateFood(string which, Snake s)

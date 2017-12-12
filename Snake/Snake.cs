@@ -19,10 +19,10 @@ namespace Snake
         Game bases;
 
         // constructor
-        public Snake(Color color, Game b, int s, string na)
+        public Snake(Color color, Game b, int s, string name)
         {
             Speed = s;
-            Name = na;
+            Name = name;
 
             bases = b;
             Position.Add(new Point(bases.R.Next(bases.Width), bases.R.Next(bases.Height)));

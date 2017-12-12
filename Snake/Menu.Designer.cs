@@ -219,7 +219,7 @@ namespace Snake
             this.multiplayer.Location = new System.Drawing.Point(4, 22);
             this.multiplayer.Name = "multiplayer";
             this.multiplayer.Padding = new System.Windows.Forms.Padding(3);
-            this.multiplayer.Size = new System.Drawing.Size(752, 439);
+            this.multiplayer.Size = new System.Drawing.Size(734, 439);
             this.multiplayer.TabIndex = 1;
             this.multiplayer.Text = "Multi player";
             // 
@@ -318,7 +318,7 @@ namespace Snake
             this.lb.Location = new System.Drawing.Point(4, 22);
             this.lb.Name = "lb";
             this.lb.Padding = new System.Windows.Forms.Padding(3);
-            this.lb.Size = new System.Drawing.Size(752, 439);
+            this.lb.Size = new System.Drawing.Size(734, 439);
             this.lb.TabIndex = 2;
             this.lb.Text = "leaderboards";
             // 
@@ -367,7 +367,7 @@ namespace Snake
             this.about.Location = new System.Drawing.Point(4, 22);
             this.about.Name = "about";
             this.about.Padding = new System.Windows.Forms.Padding(3);
-            this.about.Size = new System.Drawing.Size(752, 439);
+            this.about.Size = new System.Drawing.Size(734, 439);
             this.about.TabIndex = 3;
             this.about.Text = "About";
             this.about.UseVisualStyleBackColor = true;
@@ -378,7 +378,7 @@ namespace Snake
             this.webBrowser.Location = new System.Drawing.Point(3, 3);
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(746, 433);
+            this.webBrowser.Size = new System.Drawing.Size(728, 433);
             this.webBrowser.TabIndex = 0;
             this.webBrowser.Url = new System.Uri("", System.UriKind.Relative);
             // 

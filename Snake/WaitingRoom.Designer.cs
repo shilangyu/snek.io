@@ -64,6 +64,7 @@
             this.startMulti.TabIndex = 1;
             this.startMulti.Text = "Start";
             this.startMulti.UseVisualStyleBackColor = true;
+            this.startMulti.Click += new System.EventHandler(this.startMulti_Click);
             // 
             // WaitingRoom
             // 

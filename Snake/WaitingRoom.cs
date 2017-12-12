@@ -87,22 +87,45 @@ namespace Snake
             if (who == "client")
                 client.WriteLine(name);
         }
+        private void startMulti_Click(object sender, EventArgs e)
+        {
+            server.BroadcastLine("StArT");
+            this.Stop();
+
+            MultiPlayerHost mp = new MultiPlayerHost(ip);
+            this.Hide();
+            mp.ShowDialog();
+            this.Show();
+        }
 
         // functions
         private void GetServer(object sender, SimpleTCP.Message e)
         {
+            string recieved = Regex.Replace(e.MessageString, @"\u0013", String.Empty);
+
             players.Invoke((MethodInvoker)delegate ()
             {
-                string recieved = Regex.Replace(e.MessageString, @"\u0013", String.Empty);
                 players.Text += recieved + "\n";
             });
             server.BroadcastLine(players.Text);
         }
         private void GetClient(object sender, SimpleTCP.Message e)
         {
+            string recieved = Regex.Replace(e.MessageString, @"\u0013", String.Empty);
+
+            if(recieved.Equals("StArT"))
+            {
+                MultiPlayerClient mp = new MultiPlayerClient(ipAdress);
+                this.Stop();
+
+                this.Hide();
+                mp.ShowDialog();
+                this.Show();
+            }
+
             players.Invoke((MethodInvoker)delegate ()
             {
-                string recieved = Regex.Replace(e.MessageString, @"\u0013", String.Empty);
+                
                 players.Text = recieved;
             });
         }
@@ -118,7 +141,5 @@ namespace Snake
                     break;
             }
         }
-
-        
     }
 }

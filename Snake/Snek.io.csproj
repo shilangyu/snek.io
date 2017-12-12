@@ -64,6 +64,18 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="MultiPlayerClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MultiPlayerClient.Designer.cs">
+      <DependentUpon>MultiPlayerClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MultiPlayerHost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MultiPlayerHost.Designer.cs">
+      <DependentUpon>MultiPlayerHost.cs</DependentUpon>
+    </Compile>
     <Compile Include="MySQL.cs" />
     <Compile Include="SinglePlayer.cs">
       <SubType>Form</SubType>
@@ -83,6 +95,12 @@
     </Compile>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MultiPlayerClient.resx">
+      <DependentUpon>MultiPlayerClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MultiPlayerHost.resx">
+      <DependentUpon>MultiPlayerHost.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SinglePlayer.resx">
       <DependentUpon>SinglePlayer.cs</DependentUpon>

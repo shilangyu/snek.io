@@ -94,7 +94,7 @@ namespace Snake
                 snakeUpdate.Enabled = false;
                 DateTime stop = DateTime.Now;
 
-                if (MessageBox.Show("Are you sure?", "Exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     this.Close();
 
                 snakeUpdate.Enabled = true;

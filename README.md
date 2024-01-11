@@ -11,17 +11,17 @@ ___
 + Leaderboards: miejsce gdzie można zobaczyć rekordy
 ___
 ## jakich rzeczy używam? ##
-+ Timer: rytmiczne wykonywanie jakiś zadań
++ Timer: rytmiczne wykonywanie jakichś zadań
 + Material Design: wizualny standard Google
 + TCP: sockets do szybkiej komunikacji komputerów
-+ MySQL: bazadanych do przechowywania rekordów
++ MySQL: baza danych do przechowywania rekordów
 ___
 ## klasy ##
-+ [Snake](./Snake/Snake.cs): prędkość, kolor, wielkość, metody kolizjii
++ [Snake](./Snake/Snake.cs): prędkość, kolor, wielkość, metody kolizji
 + [Food](./Snake/Food.cs): lokalizacja, kolor, wartość, metody generowania miejsca pojawienia się
 + [Game](./Snake/Game.cs): parametry gry
-+ [MySQL](./Snake/MySQL.cs): polaczenie, wykonanie query, zamknięcie
-+ [WaitingRoom](./Snake/WaitingRoom.cs): miejsce gdzie czeka sie na połączenie innych graczy
++ [MySQL](./Snake/MySQL.cs): połączenie, wykonanie query, zamknięcie
++ [WaitingRoom](./Snake/WaitingRoom.cs): miejsce gdzie czeka się na połączenie innych graczy
 + [SinglePlayer](./Snake/SinglePlayer.cs): gra jednoosobowa
 
 ___
